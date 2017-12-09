@@ -79,3 +79,18 @@
 	enable-sdio-wakeup;
 	status = "okay";
 };
+
+
+&i2c2 {
+	status = "okay";
+
+	egalax_ts@04 {
+		status = "disable";
+	};
+	max11801@48 {
+		status = "disable";
+	};
+	pmic: pfuze100@08 {
+		status = "disable";
+	};
+};
