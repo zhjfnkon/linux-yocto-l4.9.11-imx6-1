@@ -18,6 +18,19 @@
 / {
 	model = "Freescale i.MX6 Quad Nkon Core Board";
 	compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+	regulators {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		reg_usb_otg_vbus: regulator@0 {
+			vin-supply = <>;
+		};
+
+		reg_usb_h1_vbus: regulator@1 {
+			vin-supply = <>;
+		};
+	};
 };
 
 &battery {
