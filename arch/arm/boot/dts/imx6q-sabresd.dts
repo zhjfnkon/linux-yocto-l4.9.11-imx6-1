@@ -40,20 +40,73 @@
 };
 
 &ldb {
+	split-mode;
+	status = "okay";
+
 	lvds-channel@0 {
+		fsl,data-mapping = "spwg";
+		fsl,data-width = <24>;
 		crtc = "ipu2-di0";
+		status = "okay";
+
+		display-timings {
+			native-mode = <&timing0>;
+			timing0: hsd100pxn1 {
+				clock-frequency = <148500000>;
+				hactive = <1920>;
+				vactive = <1080>;
+				hback-porch = <180>;
+				hfront-porch = <40>;
+				vback-porch = <28>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+			};
+		};
 	};
 
 	lvds-channel@1 {
+		fsl,data-mapping = "spwg";
+		fsl,data-width = <24>;
+		primary;
 		crtc = "ipu2-di1";
+		status = "okay";
+
+		display-timings {
+			native-mode = <&timing1>;
+			timing1: hsd100pxn1 {
+				clock-frequency = <148500000>;
+				hactive = <1920>;
+				vactive = <1080>;
+				hback-porch = <180>;
+				hfront-porch = <40>;
+				vback-porch = <28>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+			};
+		};
 	};
 };
 
 &mxcfb1 {
+	compatible = "fsl,mxc_sdc_fb";
+	disp_dev = "ldb";
+	interface_pix_fmt = "RGB24";
+	default_bpp = <32>;
+	int_clk = <0>;
+	late_init = <0>;
 	status = "okay";
 };
 
 &mxcfb2 {
+	compatible = "fsl,mxc_sdc_fb";
+	disp_dev = "hdmi";
+	interface_pix_fmt = "RGB24";
+	mode_str ="1920x1080M@60";
+	default_bpp = <32>;
+	int_clk = <0>;
+	late_init = <0>;
 	status = "okay";
 };
 
