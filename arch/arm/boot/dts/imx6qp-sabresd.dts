@@ -173,3 +173,18 @@
 &sata {
 	status = "okay";
 };
+
+
+&i2c3 {
+	status = "disable";
+};
+
+
+&reg_audio {
+	compatible = "regulator-fixed";
+	reg = <2>;
+	regulator-name = "wm8962-supply";
+	gpio = <&gpio1 3 0>;
+	enable-active-high;
+};
+

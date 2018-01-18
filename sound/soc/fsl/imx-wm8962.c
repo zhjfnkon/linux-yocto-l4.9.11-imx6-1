@@ -112,6 +112,7 @@ static int hpjack_status_check(void *data)
 		return -ENOMEM;
 	}
 
+	hp_status = 0;
 	if (hp_status != priv->hp_active_low) {
 		snprintf(buf, 32, "STATE=%d", 2);
 		snd_soc_dapm_disable_pin(snd_soc_codec_get_dapm(priv->codec), "Ext Spk");
